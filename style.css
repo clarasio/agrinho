@@ -1,42 +1,57 @@
 /* Importação de fonte do Google Fonts para um visual mais moderno */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+/* Definição das variáveis de cores */
+:root {
+    --cor-muito-escura: #012E40;       /* Azul marinho profundo */
+    --cor-escura: #024959;             /* Azul esverdeado escuro */
+    --cor-media: #026773;              /* Azul esverdeado médio */
+    --cor-clara: #3CA6A6;              /* Verde-água/ciano claro */
+    --cor-fundo-principal: #F2E3D5;    /* Bege/off-white para o fundo da página */
+    --cor-texto-padrao: var(--cor-muito-escura); /* Cor padrão do texto para contraste */
+    --cor-texto-claro: #ffffff;        /* Texto branco para fundos escuros */
+}
+
 /* Estilos Gerais do Corpo do Site */
 body {
     font-family: 'Poppins', sans-serif; /* Usando a nova fonte */
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa; /* Um cinza muito claro, quase branco */
-    color: #343a40; /* Texto em tom de cinza escuro */
+    background-color: var(--cor-fundo-principal); /* Fundo da página */
+    color: var(--cor-texto-padrao); /* Cor padrão do texto */
 }
 
 /* --- Cabeçalho Principal --- */
 .main-header {
-    background-color: #28a745; /* Verde vibrante */
-    color: white;
+    background-color: var(--cor-escura); /* Fundo do cabeçalho */
+    color: var(--cor-texto-claro); /* Texto branco no cabeçalho */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    
+    padding-bottom: 0; /* Ajuste para espaçamento */
 }
 
 .main-header h1 {
     font-size: 3rem; /* Tamanho maior para o título principal */
     font-weight: 700;
     margin-bottom: 0.5rem;
+    color: var(--cor-texto-claro); /* Título principal branco */
 }
 
 .main-header h3 {
     font-size: 1.5rem;
     font-weight: 400;
     opacity: 0.9; /* Deixa um pouco mais suave */
+    color: var(--cor-texto-claro); /* Subtítulo branco */
 }
 
 /* --- Navegação (Navbar) --- */
 .navbar {
+    background-color: var(--cor-muito-escura) !important; /* Fundo da navbar, o mais escuro */
     border-top: 1px solid rgba(255, 255, 255, 0.2); /* Linha sutil para separar do cabeçalho */
+    border-radius: 0; /* Garante que não haja bordas arredondadas se o Bootstrap aplicar */
 }
 
 .navbar-nav .nav-link {
-    color: rgb(0, 0, 0) !important; /* Força a cor branca dos links */
+    color: var(--cor-texto-claro) !important; /* Links brancos na navbar */
     padding: 0.8rem 1.5rem;
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -45,26 +60,26 @@ body {
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-    background-color: #47ad47; /* Verde mais escuro ao passar o mouse ou ativo */
-    color: #000000 !important;
+    background-color: var(--cor-media); /* Fundo ao passar o mouse ou ativo */
+    color: var(--cor-texto-claro) !important; /* Texto branco no hover/ativo */
 }
 
 /* --- Seções de Conteúdo --- */
 h2, h3 {
-    color: #198754; /* Verde escuro para os títulos de seção */
     margin-bottom: 1.5rem;
     font-weight: 600;
+    color: #000000
 }
 
 .field-city-connection {
-    background-color: #ffffff;
+    background-color: var(--cor-fundo-principal); /* Fundo da seção, para manter a consistência */
     padding: 3rem;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
 }
 
 .field-city-connection img {
-    border: 3px solid #dee2e6; /* Borda suave para a imagem */
+    border: 3px solid var(--cor-clara); /* Borda com a cor clara */
     border-radius: 8px; /* Cantos arredondados */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -78,113 +93,10 @@ h2, h3 {
 }
 
 .carousel-caption {
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente para o texto */
+    background-color: rgba(1, 46, 64, 0.7); /* Usando o `cor-muito-escura` com transparência */
     border-radius: 5px;
     padding: 10px 15px;
+    color: var(--cor-texto-claro); /* Texto branco na legenda do carrossel */
 }
 
 /* --- Cartões de Áreas --- */
-.areas-section .card {
-    border: none;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.areas-section .card:hover {
-    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.areas-section .card-img-top {
-    height: 200px; /* Altura fixa para as imagens dos cartões */
-    object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.areas-section .card-body {
-    padding: 1.5rem;
-}
-
-.areas-section .card-title {
-    color: #0d6efd; /* Azul para os títulos dos cartões */
-    font-weight: 600;
-}
-
-.areas-section .btn-primary {
-    background-color: #0d6efd; /* Azul Bootstrap padrão */
-    border-color: #0d6efd;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.areas-section .btn-primary:hover {
-    background-color: #0b5ed7; /* Azul mais escuro no hover */
-    border-color: #0b5ed7;
-}
-
-/* --- Rodapé --- */
-.site-footer {
-    background-color: #343a40; /* Cinza escuro para o rodapé */
-    color: #e0e0e0; /* Texto cinza claro */
-    font-size: 0.9rem;
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* --- Classes de Alinhamento e Espaçamento (já existiam ou ajustadas) --- */
-.alinha { /* Pode ser mais específico se não for global */
-    text-align: justify;
-}
-
-/* Removido as classes br-3 e img-agro do HTML pois não eram do Bootstrap ou não tinham CSS definido */
-/* Se você tiver imagens específicas que precisem de estilos diferentes, adicione-as aqui */
-
-/* Media Queries para Responsividade (ajustes para telas menores) */
-@media (max-width: 768px) {
-    .main-header h1 {
-        font-size: 2.2rem;
-    }
-
-    .main-header h3 {
-        font-size: 1.2rem;
-    }
-
-    .navbar-nav .nav-link {
-        padding: 0.5rem 1rem;
-        text-align: center;
-    }
-
-    .field-city-connection {
-        padding: 2rem 1.5rem;
-    }
-
-    .field-city-connection .col-md-5,
-    .field-city-connection .col-md-7 {
-        order: initial !important; /* Reseta a ordem em telas menores */
-    }
-
-    .field-city-connection img {
-        margin-top: 1.5rem; /* Espaço entre texto e imagem em mobile */
-    }
-
-    .carousel-img {
-        height: 250px; /* Reduz a altura do carrossel em mobile */
-    }
-}
-
-@media (max-width: 576px) {
-    .main-header h1 {
-        font-size: 1.8rem;
-    }
-
-    .main-header h3 {
-        font-size: 1rem;
-    }
-
-    .carousel-caption {
-        display: none !important; /* Esconde legendas do carrossel em telas muito pequenas */
-    }
-
-    .areas-section .col {
-        margin-bottom: 1.5rem; /* Espaçamento entre cartões em coluna única */
-    }
-}
